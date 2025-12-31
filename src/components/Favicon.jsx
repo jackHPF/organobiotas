@@ -8,7 +8,14 @@ const Favicon = () => {
 
     const version = 'v2';
     
-    // Primary favicon (browsers will use this instead of favicon.ico)
+    // Explicitly set favicon.ico first (browsers look for this by default)
+    const icoLink = document.createElement('link');
+    icoLink.rel = 'icon';
+    icoLink.href = `/favicon.ico?${version}`;
+    icoLink.type = 'image/x-icon';
+    document.head.insertBefore(icoLink, document.head.firstChild);
+
+    // Primary favicon PNG
     const link = document.createElement('link');
     link.rel = 'icon';
     link.type = 'image/png';
@@ -27,12 +34,6 @@ const Favicon = () => {
     appleLink.rel = 'apple-touch-icon';
     appleLink.href = `/logo.png?${version}`;
     document.head.appendChild(appleLink);
-
-    // Prevent browser from looking for favicon.ico by adding it as a data URI
-    const icoLink = document.createElement('link');
-    icoLink.rel = 'icon';
-    icoLink.href = `/logo.png?${version}`;
-    document.head.appendChild(icoLink);
   }, []);
 
   return null;
