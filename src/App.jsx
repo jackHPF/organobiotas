@@ -10,10 +10,12 @@ import Partnership from './components/Partnership';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
+import Favicon from './components/Favicon';
 
 function App() {
   return (
     <div className="App">
+      <Favicon />
       <Navigation />
       <Hero />
       <ExecutiveSummary />
